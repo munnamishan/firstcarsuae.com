@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Cars | Premium Fleet Rentals</title>
+    <link rel="stylesheet" href="FirstCars.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<a href="https://wa.me/+971506694292" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></div>
+    <nav class="mobile-nav-links">
+        <a href="#vehicles" onclick="closeSidebarMenu()">Vehicles</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="help.html">Help</a>
+        <a href="terms.html" style="font-size: 1rem; color: #cbd5e1; border-bottom: none; margin-top: 10px;">Terms & Conditions</a>
+    </nav>
+</div>
+
+<header class="Firstcars-header">    
+    <div class="container header-container">
+        <a href="#" class="logo-container">
+            <img src="first cars rentals logo.png" alt="First Car Rentals" class="header-logo">
+        </a>
+
+        <nav class="header-nav">
+            <a href="#vehicles">Vehicles</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="help.html">Help</a>
+        </nav>
+        
+        <div class="header-right">
+            <div class="call-dropdown-container">
+                <button class="call-btn" id="callDropdownBtn"><i class="fas fa-phone-alt"></i> CALL US</button>
+                <div class="call-dropdown-menu" id="callDropdownMenu">
+                    <a href="tel:+971504458918"><i class="fas fa-phone-alt"></i> +971 50 445 8918</a>
+                    <a href="tel:+971506694292"><i class="fas fa-phone-alt"></i> +971 50 669 4292</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="hero-minimal">
+    <div class="hamburger" id="hamburgerMenu">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="hero-overlay">
+        <div class="container">
+            <h1>Where Your Journey Comes First</h1>
+            <p>Elevating every mile of your <strong>UAE journey</strong></p>
+        </div>
+    </div>
+</section>
+
+<main id="vehicles" class="fleet-section">
+    <div class="container">
+        <h2 class="fleet-heading">Explore Our Premium Fleet</h2>
+        
+        <div class="fleet-grid">
+            <div class="car-card-pro">
+                <div class="tag economy">BEST SELLER</div>
+                <div class="image-box"><img src="yaris.png" alt="Toyota Yaris" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Toyota Yaris</h3>
+                        <div class="badges"><span class="badge">Sedan</span><span class="badge">2025</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>5 Seats</span> • <span>1.5L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>109</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>599</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>1849</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="yaris.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card-pro">
+                <div class="image-box"><img src="corolla.png" alt="Toyota Corolla" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Toyota Corolla</h3>
+                        <div class="badges"><span class="badge">Sedan</span><span class="badge">2025</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>5 Seats</span> • <span>1.8L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>119</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>763</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>2399</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="corolla.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card-pro">
+                <div class="tag featured">NEW ARRIVAL</div>
+                <div class="image-box"><img src="corolla cross.png" alt="Toyota Corolla Cross" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Corolla Cross</h3>
+                        <div class="badges"><span class="badge">Crossover</span><span class="badge">2025</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>5 Seats</span> • <span>1.8L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>169</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>1050</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>3199</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="corolla-cross.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card-pro">
+                <div class="tag featured">★ FEATURED</div>
+                <div class="image-box"><img src="camry.png" alt="Toyota Camry" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Toyota Camry</h3>
+                        <div class="badges"><span class="badge">Sedan</span><span class="badge">2025</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>5 Seats</span> • <span>2.5L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>179</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>1119</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>3449</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="Toyota-Camry.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card-pro">
+                <div class="tag economy">BEST VALUE</div>
+                <div class="image-box"><img src="attrage.png" alt="Mitsubishi Attrage" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Mitsubishi Attrage</h3>
+                        <div class="badges"><span class="badge">Sedan</span><span class="badge">2024</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>5 Seats</span> • <span>1.2L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>104</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>665</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>1899</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="Mitsubishi-Attrage.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card-pro">
+                <div class="tag featured">POPULAR</div>
+                <div class="image-box"><img src="asx.png" alt="Mitsubishi ASX" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Mitsubishi ASX</h3>
+                        <div class="badges"><span class="badge">Compact SUV</span><span class="badge">2025</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>5 Seats</span> • <span>2.0L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>149</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>950</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>2899</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="Mitsubishi-ASX.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card-pro">
+                <div class="tag featured">7 SEATER</div>
+                <div class="image-box"><img src="outlander.png" alt="Mitsubishi Outlander" class="car-thumb"></div>
+                <div class="car-info">
+                    <div class="car-title-row">
+                        <h3>Mitsubishi Outlander</h3>
+                        <div class="badges"><span class="badge">SUV</span><span class="badge">2025</span></div>
+                    </div>
+                    <div class="car-specs"><span>Automatic</span> • <span>7 Seats</span> • <span>2.5L</span></div>
+                    <div class="pricing-container">
+                        <div class="price-item"><span>Daily</span><strong>199</strong></div>
+                        <div class="price-item"><span>Weekly</span><strong>1250</strong></div>
+                        <div class="price-item highlight"><span>Monthly</span><strong>3899</strong></div>
+                    </div>
+                    <div class="car-btns">
+                        <a href="Mitsubishi-Outlander.html" class="btn-detail">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<section class="overseas-section">
+    <div class="container overseas-grid">
+        <div class="overseas-content">
+            <h2>Visiting From Overseas?</h2>
+            <p class="overseas-subtitle">Hassle-free car rentals for international travelers.</p>
+            
+            <div class="stepper">
+                <div class="step-item">
+                    <div class="step-dot"></div>
+                    <p>Familiarize yourself with the <span class="highlight-text">car rental requirements</span>.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot"></div>
+                    <p>Learn about <span class="highlight-text">insurance for your rental car</span> in UAE.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot"></div>
+                    <p>Read up on <span class="highlight-text">basic road signs</span> to navigate safely and confidently in Dubai.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-dot"></div>
+                    <p>Check on the <span class="highlight-text">UAE petrol prices</span>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="overseas-visual">
+            <img src="map.png" alt="UAE Travel Guide" class="guide-img">
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col brand-col">
+            <div class="footer-logo-row">
+                <img src="first cars rentals logo.png" alt="First Cars Logo" class="footer-logo-img">
+                <div class="footer-brand">FIRST <span>CARS</span></div>
+            </div>
+            <p>Your trusted partner for premium car rentals.</p>
+            
+            <div class="footer-section-title">For Inquiries</div>
+            <div class="footer-contacts">
+                <a href="tel:+971504458918" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 445 8918</a>
+                <a href="tel:+971506694292" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 669 4292</a>
+                <a href="tel:+971026446115" class="contact-link"><i class="fas fa-phone-alt"></i> +971 02 644 6115</a>
+                <a href="mailto:firstcaruae@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> firstcaruae@gmail.com</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/+971506694292" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Working Hours</h3>
+            <ul class="timing-list">
+                <li><span>Mon – Sat</span> <strong>8:00 AM – 9:00 PM</strong></li>
+                <li><span>Sunday</span> <strong class="closed">Closed</strong></li>
+            </ul>
+
+            <div class="payment-section">
+                <div class="footer-section-title">Payment methods</div>
+                <div class="payment-icons-original">
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <svg class="tabby-svg-icon" viewBox="0 0 85 32" xmlns="http://www.w3.org/2000/svg" title="Tabby">
+                        <text x="0" y="24" font-family="'Poppins', sans-serif" font-weight="800" font-size="28" fill="currentColor">tabby</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col map-col">
+            <h3>Our Address</h3>
+            <p class="address-text">
+                FIRST CAR Rent A Car<br>
+                Al Zahiyah - E16 02 - Abu Dhabi<br>
+                United Arab Emirates<br>
+                F9QJ+V4 Abu Dhabi
+            </p>
+            <a href="https://www.google.com/maps/search/?api=1&query=FIRST+CAR+Rent+A+Car,+Al+Zahiyah+-+E16+02+-+Abu+Dhabi+-+United+Arab+Emirates" target="_blank" class="footer-map-link">
+                <div class="map-rectangle">
+                    <iframe src="https://maps.google.com/maps?q=FIRST%20CAR%20Rent%20A%20Car,%20Al%20Zahiyah%20-%20E16%2002%20-%20Abu%20Dhabi&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-overlay">GET DIRECTIONS</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>© 2026 FIRST CARS rentals. All Rights Reserved.</div>
+            <div>
+                <a href="terms.html" style="color: #ccc; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#007acc'" onmouseout="this.style.color='#ccc'">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- Mobile Sidebar Logic ---
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openSidebar() {
+        if(mobileSidebar) mobileSidebar.classList.add('active');
+        if(mobileOverlay) mobileOverlay.classList.add('active');
+    }
+
+    function closeSidebarMenu() {
+        if(mobileSidebar) mobileSidebar.classList.remove('active');
+        if(mobileOverlay) mobileOverlay.classList.remove('active');
+    }
+
+    if(hamburgerMenu) hamburgerMenu.addEventListener('click', openSidebar);
+    if(closeSidebar) closeSidebar.addEventListener('click', closeSidebarMenu);
+    if(mobileOverlay) mobileOverlay.addEventListener('click', closeSidebarMenu);
+
+    // --- Call Dropdown Logic ---
+    const callDropdownBtn = document.getElementById('callDropdownBtn');
+    const callDropdownMenu = document.getElementById('callDropdownMenu');
+
+    if(callDropdownBtn && callDropdownMenu) {
+        callDropdownBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            callDropdownMenu.classList.toggle('show');
+        });
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.call-btn') && !event.target.closest('.call-dropdown-container')) {
+            if (callDropdownMenu && callDropdownMenu.classList.contains('show')) {
+                callDropdownMenu.classList.remove('show');
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

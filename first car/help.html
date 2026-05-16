@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | First Cars Rentals Abu Dhabi</title>
+    
+    <link rel="stylesheet" href="FirstCars.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+  
+        
+        /* --- Mobile Navigation (Hamburger Menu) --- */
+        .hamburger-page {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -280px; /* Hidden off-screen to the right */
+            width: 280px;
+            height: 100vh;
+            background: rgb(0, 122, 204);
+            z-index: 2000;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .mobile-sidebar.active {
+            right: 0; /* Slide in */
+        }
+
+        .mobile-sidebar .close-btn {
+            align-self: flex-end;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s;
+        }
+
+        .mobile-nav-links a:hover {
+            color: #f97316;
+        }
+
+        @media (max-width: 900px) {
+            .header-nav {
+                display: none !important; /* Hide desktop nav */
+            }
+            .hamburger-page {
+                display: block; /* Show hamburger icon */
+            }
+            .header-container {
+                flex-direction: row; /* Keep logo and buttons in one row */
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        /* --- Hero Section --- */
+        .help-hero {
+            background: linear-gradient(135deg, rgba(0, 122, 204, 1) 0%, rgba(0, 50, 100, 1) 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            position: relative; /* Crucial for absolute positioning the hamburger */
+        }
+
+        .help-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .help-hero p {
+            font-size: 1.2rem;
+            color: #e0f2fe;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 18px 25px 18px 55px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+
+        /* --- Emergency Bar --- */
+        .emergency-bar {
+            background-color: #fef2f2;
+            border-left: 5px solid #ef4444;
+            max-width: 1200px;
+            margin: -80px auto 50px auto;
+            position: relative;
+            z-index: 10;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .emergency-text {
+            color: #991b1b;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emergency-btn {
+            background: #ef4444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .emergency-btn:hover { background: #dc2626; color: white; }
+
+        /* --- Help Grid --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e293b;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background-color: #f97316;
+            border-radius: 2px;
+            margin: 0 auto 50px auto;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .help-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 35px 30px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .help-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: rgb(0, 122, 204);
+        }
+
+        .help-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: #e0f2fe;
+            color: rgb(0, 122, 204);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .help-card h3 {
+            color: #1e293b;
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        /* --- Inline Expandable Links inside Cards --- */
+        .mini-faq-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mini-faq details {
+            background: transparent;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .mini-faq summary {
+            padding: 0;
+            font-size: 0.95rem;
+            color: #475569;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+
+        .mini-faq summary::-webkit-details-marker { display: none; }
+        
+        .mini-faq summary::after { display: none; } 
+
+        .mini-faq summary i {
+            color: #f97316;
+            margin-top: 4px;
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .mini-faq summary:hover {
+            color: rgb(0, 122, 204);
+            font-weight: 600;
+        }
+
+        .mini-faq[open] summary i {
+            transform: rotate(90deg); 
+            color: rgb(0, 122, 204);
+        }
+
+        .mini-faq[open] summary {
+            font-weight: 600;
+            color: rgb(0, 122, 204);
+        }
+
+        .mini-faq-content {
+            padding: 10px 10px 10px 22px;
+            margin-top: 5px;
+            margin-left: 5px;
+            font-size: 0.85rem;
+            color: #64748b;
+            border-left: 2px solid #e0f2fe;
+            line-height: 1.6;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- Contact Footer --- */
+        .contact-cta {
+            background: #f0f9ff;
+            border-radius: 20px;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-cta h2 { color: #1e293b; margin-bottom: 15px; font-size: 2rem; }
+        .contact-cta p { color: #64748b; margin-bottom: 30px; font-size: 1.1rem; }
+
+        .btn-contact {
+            background-color: #f97316;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
+            transition: all 0.3s;
+        }
+
+        .btn-contact:hover {
+            background-color: #ea580c;
+            transform: scale(1.05);
+        }
+
+        /* Payment Icons & Tabby specific styling */
+        .payment-icons-original { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            font-size: 32px; 
+            color: #ffffff; 
+            margin-top: 10px; 
+        }
+        .tabby-svg-icon {
+            height: 24px; 
+            width: 65px;
+            display: inline-block;
+            color: #ffffff; 
+        }
+
+        @media (max-width: 768px) {
+            .help-hero h1 { font-size: 2.5rem; }
+            .emergency-bar { margin-top: 0; border-radius: 0; }
+            .emergency-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/+971506694292" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></div>
+    <nav class="mobile-nav-links">
+        <a href="index.html#vehicles">Vehicles</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="help.html" onclick="closeSidebarMenu()">Help</a>
+    </nav>
+</div>
+
+<header class="Firstcars-header">    
+    <div class="container header-container">
+        <a href="index.html" class="logo-container">
+            <img src="first cars rentals logo.png" alt="First Car Rentals" class="header-logo">
+        </a>
+        <nav class="header-nav">
+            <a href="index.html#vehicles">Vehicles</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="help.html">Help</a>
+        </nav>
+        
+        <div class="header-actions">
+            <div class="header-right">
+                <a href="tel:+971504458918" class="call-btn"><i class="fas fa-phone-alt"></i> CALL US</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="help-hero">
+        <div class="hamburger-page" id="hamburgerMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="container">
+            <h1>How can we help you today?</h1>
+            <p>Find answers to your questions about renting in the UAE, insurance, and more.</p>
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="faqSearchInput" placeholder="Search for 'Salik', 'Deposit', 'Fines'...">
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="emergency-bar">
+            <div class="emergency-text">
+                <i class="fas fa-exclamation-triangle"></i>
+                In an accident? You MUST get a Police Report (Call 999).
+            </div>
+            <a href="tel:+971504458918" class="emergency-btn">Call First Cars Support</a>
+        </div>
+    </div>
+
+    <section class="container">
+        <h2 class="section-title">Browse by Topic</h2>
+        <div class="title-underline"></div>
+        
+        <div class="help-grid" id="faqGrid">
+            
+            <div class="help-card">
+                <div class="help-icon-wrapper"><i class="fas fa-id-card"></i></div>
+                <h3>UAE Rental Requirements</h3>
+                <div class="mini-faq-group">
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Valid License & Emirates ID / Passport</summary>
+                        <div class="mini-faq-content">
+                            UAE Residents must present a valid Emirates ID and UAE Driving License. Tourists need their original Passport, Entry Visa stamp, Home Country Driving License, and (depending on nationality) an International Driving Permit.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Age requirements</summary>
+                        <div class="mini-faq-content">
+                            The minimum age to rent a standard vehicle is 21 years. For premium SUVs and luxury vehicles, the minimum age is 25 years.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Credit card authorization</summary>
+                        <div class="mini-faq-content">
+                            A valid credit card in the primary driver's name is legally required to block the security deposit. Cash or debit cards cannot be used for the security block.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon-wrapper"><i class="fas fa-road"></i></div>
+                <h3>Tolls & Traffic Fines</h3>
+                <div class="mini-faq-group">
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> How Salik & DARB work</summary>
+                        <div class="mini-faq-content">
+                            Our cars have automated toll tags. You do not need to stop. A fee of ~5 AED per crossing (includes admin fee) will be deducted from your security deposit after your rental ends.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Speeding & Traffic Fines</summary>
+                        <div class="mini-faq-content">
+                            The renter is 100% responsible for all traffic fines incurred during the rental period. Fines will be charged to your credit card along with a 10% administrative processing fee.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Paying for Mawaqif Parking</summary>
+                        <div class="mini-faq-content">
+                            Public parking in Abu Dhabi (Mawaqif) and Dubai (RTA) must be paid by the driver via SMS, apps, or payment machines to avoid ticketing.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon-wrapper"><i class="fas fa-shield-alt"></i></div>
+                <h3>Insurance & Accidents</h3>
+                <div class="mini-faq-group">
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Mandatory Police Reports</summary>
+                        <div class="mini-faq-content">
+                            By UAE law, you cannot repair a car without a Police Report. Call 999 or use the Saaed app immediately for ANY damage or scratch. Without a report, you pay the full repair cost.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> What CDW covers</summary>
+                        <div class="mini-faq-content">
+                            Collision Damage Waiver (CDW) limits your liability if the car is damaged, provided you have a valid Police Report. It typically does not cover tires, windshields, or undercarriage damage.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Off-road driving policy</summary>
+                        <div class="mini-faq-content">
+                            Driving off-road, on beaches, or dune bashing in the desert is strictly prohibited and instantly voids all insurance. You will be fully liable for all recovery and repair costs.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon-wrapper"><i class="fas fa-gas-pump"></i></div>
+                <h3>Fuel & Mileage</h3>
+                <div class="mini-faq-group">
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Fuel Policy</summary>
+                        <div class="mini-faq-content">
+                            We operate on a "Same-to-Same" policy. You must return the vehicle with the exact same level of fuel it had when you collected it. Missing fuel will be charged at a premium rate.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Mileage limits</summary>
+                        <div class="mini-faq-content">
+                            Standard rentals include 250km per day or 4,500km per month. Excess mileage is charged on a per-kilometer basis upon return.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Oman border crossing</summary>
+                        <div class="mini-faq-content">
+                            Crossing into Oman requires prior written approval (NOC) from First Cars and the purchase of specific cross-border insurance at least 48 hours in advance.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon-wrapper"><i class="fas fa-money-check-alt"></i></div>
+                <h3>Deposits & Payments</h3>
+                <div class="mini-faq-group">
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Security deposit refund timeline</summary>
+                        <div class="mini-faq-content">
+                            Deposits are blocked on your credit card and released after 21-30 days. This delay is mandatory because UAE traffic fines from other emirates can take weeks to register in the central police system.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Accepted payment methods</summary>
+                        <div class="mini-faq-content">
+                            We accept Visa, Mastercard, and American Express for rental payments. However, a physical Credit Card (not debit) is strictly required for the deposit block.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Cancellation policy</summary>
+                        <div class="mini-faq-content">
+                            Free cancellation is available up to 48 hours before your booking. Late cancellations or no-shows will be charged the equivalent of one full rental day.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon-wrapper"><i class="fas fa-key"></i></div>
+                <h3>Delivery & Returns</h3>
+                <div class="mini-faq-group">
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Airport & Hotel delivery</summary>
+                        <div class="mini-faq-content">
+                            We offer convenient delivery to Abu Dhabi and Dubai International Airports, as well as major hotels. Advance notice is required and delivery fees may apply.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Late return periods</summary>
+                        <div class="mini-faq-content">
+                            We offer a 2-hour grace period for returns. Returning the vehicle more than 2 hours late will result in a charge for an additional full day.
+                        </div>
+                    </details>
+                    <details class="mini-faq">
+                        <summary><i class="fas fa-chevron-right"></i> Vehicle inspection process</summary>
+                        <div class="mini-faq-content">
+                            Our team will conduct a thorough photo/video inspection with you at pickup. We highly encourage you to take your own photos of the fuel gauge and car exterior before driving off.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="contact-cta">
+            <h2>Can't find what you're looking for?</h2>
+            <p>Our First Cars support team in Al Zahiyah is ready to assist you.</p>
+            <a href="https://wa.me/+971506694292" class="btn-contact"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            <p style="margin-top: 15px; margin-bottom: 0;">Or call us directly at <strong>+971 50 445 8918</strong></p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col brand-col">
+            <div class="footer-logo-row">
+                <img src="first cars rentals logo.png" alt="First Cars Logo" class="footer-logo-img">
+                <div class="footer-brand">FIRST <span>CARS</span></div>
+            </div>
+            <p>Your trusted partner for premium car rentals.</p>
+            
+            <div class="footer-section-title">For Inquiries</div>
+            <div class="footer-contacts">
+                <a href="tel:+971504458918" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 445 8918</a>
+                <a href="tel:+971506694292" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 669 4292</a>
+                <a href="tel:+971026446115" class="contact-link"><i class="fas fa-phone-alt"></i> +971 02 644 6115</a>
+                <a href="mailto:firstcaruae@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> firstcaruae@gmail.com</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/+971506694292" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Working Hours</h3>
+            <ul class="timing-list">
+                <li><span>Mon – Sat</span> <strong>8:00 AM – 9:00 PM</strong></li>
+                <li><span>Sunday</span> <strong class="closed">Closed</strong></li>
+            </ul>
+
+            <div class="payment-section">
+                <div class="footer-section-title">Payment methods</div>
+                <div class="payment-icons-original">
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <svg class="tabby-svg-icon" viewBox="0 0 85 32" xmlns="http://www.w3.org/2000/svg" title="Tabby">
+                        <text x="0" y="24" font-family="'Poppins', sans-serif" font-weight="800" font-size="28" fill="currentColor">tabby</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col map-col">
+            <h3>Our Address</h3>
+            <p class="address-text">
+                Al Zahiyah - E16 02 - Abu Dhabi<br>
+                United Arab Emirates<br>
+                F9QJ+V4 Abu Dhabi
+            </p>
+            <a href="https://www.google.com/maps?q=Al+Zahiyah+Abu+Dhabi" target="_blank" class="footer-map-link">
+                <div class="map-rectangle">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3630.5!2d54.3!3d24.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI0JzAwLjAiTiA1NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2sae!4v123456789" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-overlay">GET DIRECTIONS</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container">
+            © 2026 FIRST CARS rentals. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- Mobile Sidebar Logic ---
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openSidebar() {
+        mobileSidebar.classList.add('active');
+        mobileOverlay.classList.add('active');
+    }
+
+    function closeSidebarMenu() {
+        mobileSidebar.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+    }
+
+    if (hamburgerMenu) hamburgerMenu.addEventListener('click', openSidebar);
+    if (closeSidebar) closeSidebar.addEventListener('click', closeSidebarMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeSidebarMenu);
+
+    // --- Search Bar Functionality ---
+    const searchInput = document.getElementById('faqSearchInput');
+    const helpCards = document.querySelectorAll('.help-card');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+
+            helpCards.forEach(card => {
+                const faqs = card.querySelectorAll('details.mini-faq');
+                let hasVisibleFaq = false;
+
+                faqs.forEach(faq => {
+                    const summaryText = faq.querySelector('summary').textContent.toLowerCase();
+                    const contentText = faq.querySelector('.mini-faq-content').textContent.toLowerCase();
+
+                    // If the search term is found in either the question or the answer
+                    if (summaryText.includes(searchTerm) || contentText.includes(searchTerm)) {
+                        faq.style.display = 'block';
+                        hasVisibleFaq = true;
+                        
+                        // Automatically expand the FAQ if the user is actively searching
+                        if (searchTerm.length > 0) {
+                            faq.setAttribute('open', '');
+                        } else {
+                            faq.removeAttribute('open');
+                        }
+                    } else {
+                        // Hide this specific FAQ if it doesn't match
+                        faq.style.display = 'none';
+                    }
+                });
+
+                // Hide the whole category card if none of its FAQs match the search
+                if (hasVisibleFaq || searchTerm === '') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+</script>
+
+</body>
+</html>

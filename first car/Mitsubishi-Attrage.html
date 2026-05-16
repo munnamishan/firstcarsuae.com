@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Mitsubishi Attrage | First Cars Rentals Abu Dhabi</title>
+    
+    <link rel="stylesheet" href="FirstCars.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           CAR BOOKING PAGE SPECIFIC STYLES
+           ========================================= */
+        
+        .booking-page-main {
+            padding: 60px 0 80px 0;
+            background-color: #f4f7f9;
+        }
+
+        .car-page-wrapper { 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 50px; 
+        }
+        
+        .car-details { flex: 1.2; min-width: 320px; }
+        .main-image { width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .rental-meta { font-size: 14px; color: #28a745; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .car-title { font-size: 32px; font-weight: 800; margin: 10px 0; color: #1e293b; }
+        
+        .specs-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .badge-spec { border: 1px solid #e2e8f0; padding: 6px 16px; border-radius: 20px; font-size: 13px; color: #64748b; background: #f8fafc; font-weight: 500;}
+        .engine-badge { display: inline-block; border: 1.5px solid rgb(0, 122, 204); padding: 6px 18px; border-radius: 20px; font-size: 14px; margin-bottom: 30px; color: rgb(0, 122, 204); font-weight: 700; background: #e0f2fe; }
+        
+        .section-label { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: #1e293b; }
+        .features-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .feature-item { background: #f1f5f9; padding: 8px 16px; border-radius: 8px; font-size: 14px; color: #475569; font-weight: 500; }
+        
+        .pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .pricing-table th { text-align: left; font-size: 14px; color: #94a3b8; font-weight: 600; padding-bottom: 12px; border-bottom: 2px solid #f1f5f9; }
+        .pricing-table td { padding: 15px 0; border-bottom: 1px solid #f1f5f9; font-size: 15px; font-weight: 500; color: #334155; }
+        .pricing-table td:nth-child(2) { color: rgb(0, 122, 204); font-weight: 700; }
+
+        /* Additional Info Box for VAT & Mileage */
+        .pricing-info-box {
+            background: #f8fafc;
+            border-left: 4px solid #f97316;
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 40px;
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .pricing-info-box i {
+            color: #f97316;
+            margin-right: 6px;
+        }
+
+        .btn-inquiry { 
+            width: 100%; 
+            padding: 16px; 
+            border-radius: 40px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            text-align: center; 
+            border: none; 
+            font-size: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+            transition: all 0.3s ease; 
+            background: #e2e8f0; 
+            color: #475569; 
+            max-width: 280px; 
+        }
+        .btn-inquiry:hover { background: #cbd5e1; transform: translateY(-2px); color: #1e293b; }
+
+        /* Booking Form Styling */
+        .booking-form { flex: 1; min-width: 320px; border: 1px solid #e2e8f0; border-radius: 20px; padding: 35px; background: #ffffff; height: fit-content; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .form-header { font-size: 22px; font-weight: 800; margin-bottom: 30px; color: #1e293b; }
+        
+        .form-group { margin-bottom: 22px; }
+        .form-group label { display: block; font-size: 14px; color: #64748b; margin-bottom: 8px; font-weight: 500; }
+        .form-row { display: flex; gap: 15px; }
+        .form-row .form-group { flex: 1; }
+        
+        select, input { width: 100%; padding: 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 15px; background: #f8fafc; outline: none; font-family: 'Poppins', sans-serif; color: #334155; transition: border-color 0.3s; }
+        select:focus, input:focus { border-color: rgb(0, 122, 204); background: #ffffff; }
+        input[type="date"], input[type="time"] { text-transform: uppercase; }
+        
+        .phone-input-wrap { display: flex; gap: 10px; }
+        .phone-input-wrap select { width: 110px; }
+
+        .checkbox-wrap { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #475569; margin: 20px 0; cursor: pointer; font-weight: 500; }
+        .checkbox-wrap input { width: 18px; height: 18px; margin: 0; cursor: pointer; accent-color: rgb(0, 122, 204); }
+
+        #drop-off-loc-container { display: none; margin-bottom: 20px; }
+        .divider { height: 1px; background: #e2e8f0; margin: 25px 0; }
+
+        .btn-book-now { 
+            width: 100%; 
+            padding: 16px; 
+            border-radius: 40px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            border: none; 
+            font-size: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+            background: #f97316; 
+            color: #fff; 
+            margin-top: 10px; 
+            transition: all 0.3s ease; 
+        }
+        .btn-book-now:hover { background: #ea580c; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(249, 115, 22, 0.25); }
+
+        /* Override global hamburger position for standard pages */
+        .hamburger-page {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        /* Payment Icons & Tabby specific styling */
+        .payment-icons-original { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            font-size: 32px; 
+            color: #ffffff; 
+            margin-top: 10px; 
+        }
+        .tabby-svg-icon {
+            height: 24px; 
+            width: 65px;
+            display: inline-block;
+            color: #ffffff; 
+        }
+
+        @media (max-width: 900px) {
+            .car-page-wrapper { flex-direction: column; padding: 25px; gap: 40px; }
+            .car-details, .booking-form { min-width: 100%; }
+            .btn-inquiry { max-width: 100%; }
+            .form-row { flex-direction: column; gap: 0; }
+            .hamburger-page { display: block; }
+            .header-nav { display: none !important; }
+            .header-container { flex-direction: row; justify-content: space-between; }
+            .header-left { display: flex; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/+971506694292" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></div>
+    <nav class="mobile-nav-links">
+        <a href="index.html#vehicles">Vehicles</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="help.html">Help</a>
+        <a href="terms.html" style="font-size: 1rem; color: #cbd5e1; border-bottom: none; margin-top: 10px;">Terms & Conditions</a>
+    </nav>
+</div>
+
+<header class="Firstcars-header">    
+    <div class="container header-container">
+        <div class="header-left" style="display: flex; align-items: center;">
+            <div class="hamburger-page" id="hamburgerMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="index.html" class="logo-container">
+                <img src="first cars rentals logo.png" alt="First Car Rentals" class="header-logo">
+            </a>
+        </div>
+
+        <nav class="header-nav">
+            <a href="index.html#vehicles">Vehicles</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="help.html">Help</a>
+        </nav>
+        
+        <div class="header-right">
+            <a href="tel:+971504458918" class="call-btn"><i class="fas fa-phone-alt"></i> CALL US</a>
+        </div>
+    </div>
+</header>
+
+<main class="booking-page-main">
+    <div class="container">
+        <div class="car-page-wrapper">
+            
+            <div class="car-details">
+                <img src="attrage.png" alt="Mitsubishi Attrage" class="main-image">
+                
+                <div class="rental-meta">
+                    <i class="fas fa-check-circle"></i> Full Insurance Included
+                </div>
+
+                <h1 class="car-title">Mitsubishi Attrage</h1>
+
+                <div class="specs-row">
+                    <span class="badge-spec">SEDAN</span>
+                    <span class="badge-spec">2024</span>
+                    <span class="badge-spec">Automatic</span>
+                    <span class="badge-spec">5 seats</span>
+                </div>
+
+                <div class="engine-badge">1.2L Engine</div>
+
+                <div class="section-label">Car Features</div>
+                <div class="features-grid">
+                    <div class="feature-item">Bluetooth</div>
+                    <div class="feature-item">USB Connection</div>
+                    <div class="feature-item">Eco Mode</div>
+                    <div class="feature-item">Power Windows</div>
+                    <div class="feature-item">Reverse Camera</div>
+                </div>
+
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Rental Period</th>
+                            <th>Rate</th>
+                            <th>Mileage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Day-basis</td><td>AED 104</td><td>250 KM</td></tr>
+                        <tr><td>Week-basis</td><td>AED 649</td><td>1500 KM</td></tr>
+                        <tr><td>Month-basis</td><td>AED 1999</td><td>4500 KM</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="pricing-info-box">
+                    <div><i class="fas fa-info-circle"></i> All rates are subject to <strong>5% UAE VAT</strong>.</div>
+                    <div style="margin-top: 5px;"><i class="fas fa-tachometer-alt"></i> Additional mileage is charged at <strong>AED 1 per Extra KM</strong>.</div>
+                </div>
+
+                <button class="btn-inquiry" onclick="sendInquiry()">
+                    <i class="fab fa-whatsapp"></i> Is Attrage Available?
+                </button>
+            </div>
+
+            <div class="booking-form">
+                <div class="form-header">Booking Request Form</div>
+                
+                <form id="rentalForm">
+                    <div class="form-group">
+                        <label>User Type</label>
+                        <select id="user-type" required>
+                            <option value="">Select Type</option>
+                            <option>UAE Resident</option>
+                            <option>Tourist</option>
+                            <option>UAE Citizen</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="full-name" placeholder="Enter Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <div class="phone-input-wrap">
+                            <select id="country-code" required>
+                                <option>+971</option>
+                                <option>+966</option>
+                                <option>+968</option>
+                                <option>+974</option>
+                                <option>+44</option>
+                                <option>+1</option>
+                            </select>
+                            <input type="tel" id="phone" placeholder="5X XXX XXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pick-up Location</label>
+                        <input list="abudhabi-places" id="pickup-loc" placeholder="Airport, Hotel, Branch, etc." required>
+                        <datalist id="abudhabi-places">
+                            <option value="First Cars - Al Zahiyah Branch">
+                            <option value="Abu Dhabi International Airport (AUH)">
+                            <option value="Dubai International Airport (DXB)">
+                            <option value="Yas Island / Yas Mall">
+                            <option value="Saadiyat Island">
+                            <option value="Abu Dhabi Downtown / Corniche">
+                            <option value="Mussafah">
+                            <option value="Khalifa City">
+                        </datalist>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Pick-up Date</label>
+                            <input type="date" id="pickup-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Pick-up Time</label>
+                            <input type="time" id="pickup-time" required>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Drop-off Date</label>
+                            <input type="date" id="drop-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Drop-off Time</label>
+                            <input type="time" id="drop-time" required>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrap" style="margin-bottom: 5px;">
+                        <input type="checkbox" id="diff-loc-check">
+                        <label for="diff-loc-check">Different drop-off location?</label>
+                    </div>
+
+                    <div id="drop-off-loc-container" style="margin-top: 15px;">
+                        <div class="form-group">
+                            <label>Drop-off Location</label>
+                            <input list="abudhabi-places" id="drop-loc" placeholder="Specify drop-off point">
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrap" style="margin-top: 15px; margin-bottom: 20px;">
+                        <input type="checkbox" id="agree-terms" required>
+                        <label for="agree-terms">I agree to the <a href="terms.html" target="_blank" style="color: rgb(0, 122, 204); text-decoration: underline;">Terms and Conditions</a></label>
+                    </div>
+
+                    <button type="submit" class="btn-book-now">
+                        <i class="fas fa-check"></i> Book Now
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col brand-col">
+            <div class="footer-logo-row">
+                <img src="first cars rentals logo.png" alt="First Cars Logo" class="footer-logo-img">
+                <div class="footer-brand">FIRST <span>CARS</span></div>
+            </div>
+            <p>Your trusted partner for premium car rentals.</p>
+            
+            <div class="footer-section-title">For Inquiries</div>
+            <div class="footer-contacts">
+                <a href="tel:+971504458918" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 445 8918</a>
+                <a href="tel:+971506694292" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 669 4292</a>
+                <a href="tel:+971026446115" class="contact-link"><i class="fas fa-phone-alt"></i> +971 02 644 6115</a>
+                <a href="mailto:firstcaruae@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> firstcaruae@gmail.com</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/+971506694292" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Working Hours</h3>
+            <ul class="timing-list">
+                <li><span>Mon – Sat</span> <strong>8:00 AM – 9:00 PM</strong></li>
+                <li><span>Sunday</span> <strong class="closed">Closed</strong></li>
+            </ul>
+
+            <div class="payment-section">
+                <div class="footer-section-title">Payment methods</div>
+                <div class="payment-icons-original">
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <svg class="tabby-svg-icon" viewBox="0 0 85 32" xmlns="http://www.w3.org/2000/svg" title="Tabby">
+                        <text x="0" y="24" font-family="'Poppins', sans-serif" font-weight="800" font-size="28" fill="currentColor">tabby</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col map-col">
+            <h3>Our Address</h3>
+            <p class="address-text">
+                Al Zahiyah - E16 02 - Abu Dhabi<br>
+                United Arab Emirates<br>
+                F9QJ+V4 Abu Dhabi
+            </p>
+            <a href="https://www.google.com/maps?q=Al+Zahiyah+Abu+Dhabi" target="_blank" class="footer-map-link">
+                <div class="map-rectangle">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3630.5!2d54.3!3d24.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI0JzAwLjAiTiA1NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2sae!4v123456789" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-overlay">GET DIRECTIONS</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>© 2026 FIRST CARS rentals. All Rights Reserved.</div>
+            <div>
+                <a href="terms.html" style="color: #ccc; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#007acc'" onmouseout="this.style.color='#ccc'">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- Mobile Sidebar Logic ---
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openSidebar() {
+        if(mobileSidebar) mobileSidebar.classList.add('active');
+        if(mobileOverlay) mobileOverlay.classList.add('active');
+    }
+
+    function closeSidebarMenu() {
+        if(mobileSidebar) mobileSidebar.classList.remove('active');
+        if(mobileOverlay) mobileOverlay.classList.remove('active');
+    }
+
+    if(hamburgerMenu) hamburgerMenu.addEventListener('click', openSidebar);
+    if(closeSidebar) closeSidebar.addEventListener('click', closeSidebarMenu);
+    if(mobileOverlay) mobileOverlay.addEventListener('click', closeSidebarMenu);
+
+    // --- Booking Form Logic ---
+    const whatsappNum = "+971506694292"; 
+    const checkbox = document.getElementById('diff-loc-check');
+    const dropOffLocContainer = document.getElementById('drop-off-loc-container');
+    const dropLocInput = document.getElementById('drop-loc');
+    const pickupLocInput = document.getElementById('pickup-loc');
+
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            dropOffLocContainer.style.display = 'block';
+            dropLocInput.required = true;
+        } else {
+            dropOffLocContainer.style.display = 'none';
+            dropLocInput.required = false;
+        }
+    });
+
+    function sendInquiry() {
+        const msg = encodeURIComponent("Hello, is the Mitsubishi Attrage 2024 available for rent?");
+        window.open(`https://wa.me/${whatsappNum}?text=${msg}`, '_blank');
+    }
+
+    window.onload = function() {
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelectorAll('input[type="date"]').forEach(el => el.value = today);
+    };
+
+    document.getElementById('rentalForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('full-name').value;
+        const phone = document.getElementById('country-code').value + " " + document.getElementById('phone').value;
+        const pLoc = pickupLocInput.value;
+        const pDate = document.getElementById('pickup-date').value;
+        const pTime = document.getElementById('pickup-time').value;
+        const dDate = document.getElementById('drop-date').value;
+        const dTime = document.getElementById('drop-time').value;
+        
+        const dLoc = checkbox.checked ? dropLocInput.value : pLoc;
+
+        let receipt = `*🚗 NEW RENTAL BOOKING*\n`;
+        receipt += `--------------------------\n`;
+        receipt += `*Car:* Mitsubishi Attrage 2024\n`;
+        receipt += `*Customer:* ${name}\n`;
+        receipt += `*Contact:* ${phone}\n\n`;
+        
+        receipt += `*📍 PICK-UP*\n`;
+        receipt += `*Location:* ${pLoc}\n`;
+        receipt += `*Date/Time:* ${pDate} at ${pTime}\n\n`;
+
+        receipt += `*🏁 DROP-OFF*\n`;
+        receipt += `*Location:* ${dLoc}\n`;
+        receipt += `*Date/Time:* ${dDate} at ${dTime}\n`;
+        
+        if (!checkbox.checked) {
+            receipt += `_(Same as Pick-up)_\n`;
+        }
+
+        receipt += `--------------------------`;
+
+        window.open(`https://wa.me/${whatsappNum}?text=${encodeURIComponent(receipt)}`, '_blank');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions | First Cars Rentals Abu Dhabi</title>
+    
+    <link rel="stylesheet" href="FirstCars.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           TERMS & CONDITIONS PAGE SPECIFIC STYLES
+           ========================================= */
+        
+        body {
+            background-color: #f4f7f9;
+        }
+
+        /* --- Mobile Navigation (Hamburger Menu) --- */
+        .hamburger-page {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -280px; 
+            width: 280px;
+            height: 100vh;
+            background: rgb(0, 122, 204);
+            z-index: 2000;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .mobile-sidebar.active {
+            right: 0; 
+        }
+
+        .mobile-sidebar .close-btn {
+            align-self: flex-end;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s;
+        }
+
+        .mobile-nav-links a:hover {
+            color: #f97316;
+        }
+
+        /* --- Terms Hero Section --- */
+        .terms-hero {
+            background: linear-gradient(135deg, rgba(0, 122, 204, 1) 0%, rgba(0, 50, 100, 1) 100%);
+            padding: 80px 20px 120px 20px; 
+            text-align: center;
+            color: white;
+        }
+
+        .terms-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+        }
+
+        .terms-hero p {
+            font-size: 1.1rem;
+            color: #e0f2fe;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Terms Content Wrapper --- */
+        .terms-wrapper {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-width: 1000px;
+            margin: -60px auto 80px auto; 
+            position: relative;
+            z-index: 10;
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .terms-header h2 {
+            color: #1e293b;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .terms-header p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* --- The List Styles (Modified for Legal "Fine Print" Look) --- */
+        .terms-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: terms-counter;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px; /* Tighter spacing */
+            font-size: 0.75rem; /* Very small "fine print" font size */
+            line-height: 1.5;
+            color: #475569;
+        }
+
+        .terms-list li::before {
+            counter-increment: terms-counter;
+            content: counter(terms-counter);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 22px; /* Small circle */
+            height: 22px;
+            background: #e0f2fe;
+            color: rgb(0, 122, 204);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.65rem; /* Small numbering */
+        }
+
+        .terms-list li strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* Payment Icons & Tabby specific styling */
+        .payment-icons-original { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            font-size: 32px; 
+            color: #ffffff; 
+            margin-top: 10px; 
+        }
+        .tabby-svg-icon {
+            height: 24px; 
+            width: 65px;
+            display: inline-block;
+            color: #ffffff; 
+        }
+
+        /* --- Responsive Adaptations --- */
+        @media (max-width: 900px) {
+            .header-nav { display: none !important; }
+            .hamburger-page { display: block; }
+            .header-container { flex-direction: row; justify-content: space-between; align-items: center; }
+            .header-left { display: flex; align-items: center; }
+            
+            .terms-hero { padding: 60px 20px 100px 20px; }
+            .terms-hero h1 { font-size: 2.2rem; }
+            .terms-wrapper { padding: 30px 20px; margin: -40px 15px 60px 15px; }
+            .terms-list li { padding-left: 30px; font-size: 0.7rem; margin-bottom: 12px; }
+            .terms-list li::before { width: 18px; height: 18px; font-size: 0.6rem; top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/971504458918" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></div>
+    <nav class="mobile-nav-links">
+        <a href="index.html#vehicles" onclick="closeSidebarMenu()">Vehicles</a>
+        <a href="aboutus.html" onclick="closeSidebarMenu()">About Us</a>
+        <a href="help.html" onclick="closeSidebarMenu()">Help</a>
+        <a href="terms.html" onclick="closeSidebarMenu()" style="font-size: 1rem; color: #cbd5e1; border-bottom: none; margin-top: 10px;">Terms & Conditions</a>
+    </nav>
+</div>
+
+<header class="Firstcars-header">    
+    <div class="container header-container">
+        <div class="header-left" style="display: flex; align-items: center;">
+            <div class="hamburger-page" id="hamburgerMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="index.html" class="logo-container">
+                <img src="first cars rentals logo.png" alt="First Car Rentals" class="header-logo">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="index.html#vehicles">Vehicles</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="help.html">Help</a>
+        </nav>
+        <div class="header-actions">
+            <div class="header-right">
+                <a href="tel:+971504458918" class="call-btn"><i class="fas fa-phone-alt"></i> CALL US</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="terms-hero">
+        <div class="container">
+            <h1>Terms & Conditions</h1>
+            <p>Please read the following conditions for car rental carefully before making a booking with First Cars.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="terms-wrapper">
+            <div class="terms-header">
+                <h2>Conditions for Car Rental</h2>
+                <p>The renter agrees to the following conditions:</p>
+            </div>
+
+            <ol class="terms-list">
+                <li>Rental payment must be made in full and instantaneously.</li>
+                <li>In case of delay on avoidance of payment, a penalty of 900 Dirhams will apply for follow up costs in addition to payment of all court and legal fees if a court case is opened to collect the rental amount.</li>
+                <li>Bears all responsibility before the car owner and before the law if it is proven that the car is required by police or any other parties for any reason during the period of contract. In addition the renter bears all costs and penalties during the same rental period plus all indemnities.</li>
+                <li>Bears all costs of car repairs if any breakage is found during the rental or detention. Also bears all costs and rental charges during repair or detention and considering period of contract extended automatically until the car is discharged under the supervision of the renting company.</li>
+                <li>The rental company has the right to add charges for additional milage and reserves the right according to this contract.</li>
+                <li>If the milage counter is corrected the rental company has the right to force a penalty as it sees fit.</li>
+                <li>In case of accident the renter pays an amount of 4% as depreciation fees.</li>
+                <li>In case of accident whereby the person renting the car repairs it without the knowledge of the renting company. The renting company reserves the right to submit the car for repair again. The renter pays all costs and additional time for such.</li>
+                <li>Any extra cost arising out of leaving the car in a deserted area where it is subject to theft or deterioration without notifying the office within 24 hours must be borne by the person renting the car.</li>
+                <li>The renter has no right to use the car for hired transportation purposes or any other purpose not included in the contract as well as no right to change any of the body features.</li>
+                <li>The renter must return it in good condition and at the time of contract expiry or else bear all costs and penalties arising of delay.</li>
+                <li>In case of any incidental of internal parts or motor the renter pays damage costs under the supervision of the company.</li>
+                <li>The renter is responsible for paying an excess amount of Dhs 1500 and 20% as the insurance company sees fit in case of accident or damage.</li>
+                <li>The renter has no right to mortgage or rent out the car to any third party. He will be obliged to return the car when requested even before expiry of contract. He will be liable for any delay in case of rejection.</li>
+                <li>The renter will be liable for any fees in returning the car to the office in case the car is parked away. The company will determine the amount according to location.</li>
+                <li>In case the renter commits a traffic offence and does not notify the company when delivering the car, he shall be liable for a fee of 600 Dirhams in addition to the offence penalty.</li>
+                <li>The contract shall be in force from the date of signing. He also must pay the amount for the expected rental period although he returned back the vehicle before the ending date.</li>
+                <li>Bears the costs of oil and filter after each 1000 K/M.</li>
+                <li>The rental company is not responsible about the security of any document regarding the renter (e.g. passports) after one week of delivering the car and closing the agreement unless he paid all his debts during the mentioned period.</li>
+                <li>Security Deposit: A security deposit of AED 1,500 is required at the time of car rental, which will be refunded one month after the vehicle is returned in good condition and without any traffic fines.</li>
+            </ol>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col brand-col">
+            <div class="footer-logo-row">
+                <img src="first cars rentals logo.png" alt="First Cars Logo" class="footer-logo-img">
+                <div class="footer-brand">FIRST <span>CARS</span></div>
+            </div>
+            <p>Your trusted partner for premium car rentals.</p>
+            
+            <div class="footer-section-title">For Inquiries</div>
+            <div class="footer-contacts">
+                <a href="tel:+971504458918" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 445 8918</a>
+                <a href="tel:+971506694292" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 669 4292</a>
+                <a href="tel:+971026446115" class="contact-link"><i class="fas fa-phone-alt"></i> +971 02 644 6115</a>
+                <a href="mailto:firstcaruae@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> firstcaruae@gmail.com</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/971504458918" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Working Hours</h3>
+            <ul class="timing-list">
+                <li><span>Mon – Sat</span> <strong>8:00 AM – 9:00 PM</strong></li>
+                <li><span>Sunday</span> <strong class="closed">Closed</strong></li>
+            </ul>
+
+            <div class="payment-section">
+                <div class="footer-section-title">Payment methods</div>
+                <div class="payment-icons-original">
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <svg class="tabby-svg-icon" viewBox="0 0 85 32" xmlns="http://www.w3.org/2000/svg" title="Tabby">
+                        <text x="0" y="24" font-family="'Poppins', sans-serif" font-weight="800" font-size="28" fill="currentColor">tabby</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col map-col">
+            <h3>Our Address</h3>
+            <p class="address-text">
+                Al Zahiyah - E16 02 - Abu Dhabi<br>
+                United Arab Emirates<br>
+                F9QJ+V4 Abu Dhabi
+            </p>
+            <a href="https://www.google.com/maps?q=Al+Zahiyah+Abu+Dhabi" target="_blank" class="footer-map-link">
+                <div class="map-rectangle">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3630.5!2d54.3!3d24.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI0JzAwLjAiTiA1NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2sae!4v123456789" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-overlay">GET DIRECTIONS</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>© 2026 FIRST CARS rentals. All Rights Reserved.</div>
+            <div>
+                <a href="terms.html" style="color: #ccc; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#007acc'" onmouseout="this.style.color='#ccc'">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openSidebar() {
+        if(mobileSidebar) mobileSidebar.classList.add('active');
+        if(mobileOverlay) mobileOverlay.classList.add('active');
+    }
+
+    function closeSidebarMenu() {
+        if(mobileSidebar) mobileSidebar.classList.remove('active');
+        if(mobileOverlay) mobileOverlay.classList.remove('active');
+    }
+
+    if(hamburgerMenu) hamburgerMenu.addEventListener('click', openSidebar);
+    if(closeSidebar) closeSidebar.addEventListener('click', closeSidebarMenu);
+    if(mobileOverlay) mobileOverlay.addEventListener('click', closeSidebarMenu);
+</script>
+
+</body>
+</html>

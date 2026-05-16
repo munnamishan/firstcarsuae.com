@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | First Cars Rentals Abu Dhabi</title>
+    
+    <link rel="stylesheet" href="FirstCars.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           ABOUT US PAGE STYLES
+           ========================================= */
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Hero Section --- */
+        .about-hero {
+            /* Replace with a cool driving/Abu Dhabi backdrop image */
+            background: url('about-hero-bg.webp') center/cover no-repeat; 
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .about-hero-overlay {
+            background: linear-gradient(135deg, rgba(0, 122, 204, 0.9) 0%, rgba(0, 50, 100, 0.8) 100%);
+            /* Even padding top and bottom since the box is now rectangular */
+            padding: 140px 20px; 
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .sub-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            color: white;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            color: #e0f2fe;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* --- Typography & Elements --- */
+        .section-title {
+            font-size: 2.5rem;
+            color: #1e293b;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background-color: #f97316;
+            border-radius: 2px;
+            margin-bottom: 30px;
+        }
+
+        .title-underline.mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Story Section --- */
+        .story-section {
+            padding: 40px 20px 80px 20px;
+        }
+
+        .story-content-centered {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content-centered p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .mission-box {
+            background: #f0f9ff;
+            border-left: 4px solid rgb(0, 122, 204);
+            padding: 25px 30px 25px 45px; 
+            border-radius: 10px;
+            margin-top: 40px;
+            position: relative;
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: rgb(0, 122, 204);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0, 122, 204, 0.3);
+        }
+
+        .mission-box p {
+            color: #0f172a;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- Values Section --- */
+        .values-section {
+            background: #f8f9fa;
+            padding: 100px 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-bottom-color: #f97316;
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: #e0f2fe;
+            color: rgb(0, 122, 204);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 25px auto;
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover .icon-wrapper {
+            background: rgb(0, 122, 204);
+            color: white;
+        }
+
+        .value-card h3 {
+            color: #1e293b;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            background: rgb(0, 122, 204);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            color: #e0f2fe;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #f97316;
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: #ea580c;
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        .cta-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .cta-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Payment Icons & Tabby specific styling */
+        .payment-icons-original { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            font-size: 32px; 
+            color: #ffffff; 
+            margin-top: 10px; 
+        }
+        .tabby-svg-icon {
+            height: 24px; 
+            width: 65px;
+            display: inline-block;
+            color: #ffffff; 
+        }
+
+        /* --- Responsive Adaptations --- */
+        @media (max-width: 900px) {
+            .about-hero-overlay {
+                /* Balanced padding for mobile */
+                padding: 100px 20px;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .cta-container h2 {
+                font-size: 2rem;
+            }
+            
+            .mission-box {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .header-nav { display: none !important; }
+            .header-container { flex-direction: row; justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/+971506694292" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></div>
+    <nav class="mobile-nav-links">
+        <a href="index.html#vehicles">Vehicles</a>
+        <a href="aboutus.html" onclick="closeSidebarMenu()">About Us</a>
+        <a href="help.html">Help</a>
+    </nav>
+</div>
+
+<header class="Firstcars-header">    
+    <div class="container header-container">
+        <div class="header-left" style="display: flex; align-items: center;">
+            <div class="hamburger-page" id="hamburgerMenu" style="display: none; font-size: 26px; color: white; cursor: pointer; margin-right: 20px;">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="index.html" class="logo-container">
+                <img src="first cars rentals logo.png" alt="First Car Rentals" class="header-logo">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="index.html#vehicles">Vehicles</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="help.html">Help</a>
+        </nav>
+        <div class="header-right">
+            <a href="tel:+971504458918" class="call-btn"><i class="fas fa-phone-alt"></i> CALL US</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="about-hero">
+        <div class="hamburger" id="hamburgerMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="about-hero-overlay">
+            <div class="container text-center">
+                <span class="sub-badge">EST. 1994 • ABU DHABI</span>
+                <h1 class="hero-title">Redefining Your Journey</h1>
+                <p class="hero-subtitle">Premium vehicles, exceptional service, and a commitment to making every drive unforgettable.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section container">
+        <div class="story-content-centered">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="title-underline mx-auto"></div>
+            <p>Welcome to <strong>First Cars</strong>, Abu Dhabi's premier car rental service. Founded with a passion for automotive excellence and unparalleled customer care, we believe that renting a car should be as seamless and enjoyable as driving one.</p>
+            <p>Whether you're a tourist exploring the stunning landscapes of the UAE, a business professional needing a reliable executive ride, or a local resident looking for a weekend getaway, our diverse fleet of meticulously maintained vehicles is ready to serve your needs.</p>
+            
+            <div class="mission-box">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p>Our mission is simple: To put your journey first by delivering transparent pricing, top-tier vehicles, and VIP service every single time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Why Choose First Cars?</h2>
+                <p class="section-desc">We go the extra mile so you don't have to.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon-wrapper"><i class="fas fa-car-side"></i></div>
+                    <h3>Premium Fleet</h3>
+                    <p>From sleek sedans to spacious SUVs, our vehicles are the latest models, fully sanitized, and maintained to the highest standards.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrapper"><i class="fas fa-tags"></i></div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees, no surprises. We offer competitive daily, weekly, and monthly rates that give you the best value in the UAE.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrapper"><i class="fas fa-headset"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Your peace of mind is our priority. Our dedicated roadside assistance and support team is available around the clock.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrapper"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Easy Convenience</h3>
+                    <p>Located in the heart of Abu Dhabi with flexible pick-up and drop-off options designed entirely around your schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container cta-container">
+            <h2>Ready to hit the road?</h2>
+            <p>Browse our premium fleet and book your next ride in minutes.</p>
+            <a href="index.html#vehicles" class="cta-btn">EXPLORE VEHICLES <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col brand-col">
+            <div class="footer-logo-row">
+                <img src="first cars rentals logo.png" alt="First Cars Logo" class="footer-logo-img">
+                <div class="footer-brand">FIRST <span>CARS</span></div>
+            </div>
+            <p>Your trusted partner for premium car rentals.</p>
+            
+            <div class="footer-section-title">For Inquiries</div>
+            <div class="footer-contacts">
+                <a href="tel:+971504458918" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 445 8918</a>
+                <a href="tel:+971506694292" class="contact-link"><i class="fas fa-phone-alt"></i> +971 50 669 4292</a>
+                <a href="tel:+971026446115" class="contact-link"><i class="fas fa-phone-alt"></i> +971 02 644 6115</a>
+                <a href="mailto:firstcaruae@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> firstcaruae@gmail.com</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/+971506694292" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Working Hours</h3>
+            <ul class="timing-list">
+                <li><span>Mon – Sat</span> <strong>8:00 AM – 9:00 PM</strong></li>
+                <li><span>Sunday</span> <strong class="closed">Closed</strong></li>
+            </ul>
+
+            <div class="payment-section">
+                <div class="footer-section-title">Payment methods</div>
+                <div class="payment-icons-original">
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <svg class="tabby-svg-icon" viewBox="0 0 85 32" xmlns="http://www.w3.org/2000/svg" title="Tabby">
+                        <text x="0" y="24" font-family="'Poppins', sans-serif" font-weight="800" font-size="28" fill="currentColor">tabby</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col map-col">
+            <h3>Our Address</h3>
+            <p class="address-text">
+                Al Zahiyah - E16 02 - Abu Dhabi<br>
+                United Arab Emirates<br>
+                F9QJ+V4 Abu Dhabi
+            </p>
+            <a href="https://www.google.com/maps?q=Al+Zahiyah+Abu+Dhabi" target="_blank" class="footer-map-link">
+                <div class="map-rectangle">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3630.5!2d54.3!3d24.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI0JzAwLjAiTiA1NMKwMTgnMDAuMCJF!5e0!3m2!1sen!2sae!4v123456789" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-overlay">GET DIRECTIONS</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container">
+            © 2026 FIRST CARS rentals. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    const hamburgerMenu = document.querySelector('.hamburger-page');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openSidebar() {
+        if(mobileSidebar) mobileSidebar.classList.add('active');
+        if(mobileOverlay) mobileOverlay.classList.add('active');
+    }
+
+    function closeSidebarMenu() {
+        if(mobileSidebar) mobileSidebar.classList.remove('active');
+        if(mobileOverlay) mobileOverlay.classList.remove('active');
+    }
+
+    if(hamburgerMenu) hamburgerMenu.addEventListener('click', openSidebar);
+    if(closeSidebar) closeSidebar.addEventListener('click', closeSidebarMenu);
+    if(mobileOverlay) mobileOverlay.addEventListener('click', closeSidebarMenu);
+    
+    // Media query handling for showing hamburger on smaller screens
+    function handleResize() {
+        if (window.innerWidth <= 900) {
+            hamburgerMenu.style.display = 'block';
+        } else {
+            hamburgerMenu.style.display = 'none';
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+</script>
+
+</body>
+</html>

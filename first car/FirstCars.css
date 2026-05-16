@@ -1,0 +1,412 @@
+/* --- RESET & GLOBAL --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background-color: #f4f7f9; color: #333; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- MOBILE NAVIGATION PANEL --- */
+.mobile-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px; /* Hidden off-screen to the right initially */
+    width: 280px;
+    height: 100vh;
+    background: #007acc;
+    z-index: 2000;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.mobile-sidebar.active {
+    right: 0; /* Slide in */
+}
+
+.mobile-sidebar .close-btn {
+    align-self: flex-end;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color 0.3s;
+}
+
+.mobile-nav-links a:hover {
+    color: #f97316;
+}
+
+/* --- HAMBURGER BUTTON --- */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 14px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- FLOATING WHATSAPP ICON --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+/* --- HEADER --- */
+.Firstcars-header { 
+    background: #007acc; 
+    height: 125px; 
+    display: flex; 
+    align-items: center; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    transition: height 0.3s ease;
+}
+
+.header-container { 
+    width: 100%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    transition: padding 0.3s ease;
+}
+
+.logo-container { 
+    height: 150px; 
+    display: flex; 
+    align-items: center; 
+    margin-top: 5px; 
+    transition: height 0.3s ease;
+}
+
+.header-logo { 
+    height: 150px; 
+    width: auto; 
+    object-fit: contain; 
+    transform: translateY(5px);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+    transition: height 0.3s ease;
+}
+
+.header-nav { display: flex; align-items: center; }
+.header-nav a { color: white; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 25px; transition: 0.3s; opacity: 0.9; position: relative; padding-bottom: 4px; }
+
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+.header-nav a:hover::after { width: 100%; }
+.header-nav a:hover { opacity: 1; }
+
+.header-right { display: flex; align-items: center; }
+
+/* --- CALL US BUTTON AND DROPDOWN --- */
+.call-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.call-btn { 
+    padding: 10px 24px; 
+    border-radius: 50px; /* Clean, modern pill shape */
+    font-weight: 600; 
+    text-decoration: none; 
+    font-size: 14px; 
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    background: white; 
+    color: #007acc; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid transparent;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.call-btn:hover {
+    background: #f8fafc;
+    color: #005999;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle pulse accentuation on the phone icon */
+.call-btn i {
+    transform: scaleX(-1);
+    font-size: 15px;
+    animation: gentle-pulse 2s infinite;
+}
+
+@keyframes gentle-pulse {
+    0% { transform: scaleX(-1) scale(1); }
+    50% { transform: scaleX(-1) scale(1.15); }
+    100% { transform: scaleX(-1) scale(1); }
+}
+
+.call-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 2000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.call-dropdown-menu.show {
+    display: block;
+    animation: slideDownIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDownIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.call-dropdown-menu a {
+    color: #334155;
+    padding: 14px 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.2s ease;
+}
+
+.call-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.call-dropdown-menu a i {
+    color: #007acc;
+    transform: scaleX(-1);
+}
+
+.call-dropdown-menu a:hover {
+    background-color: #f0f9ff;
+    color: #007acc;
+}
+
+/* --- HERO --- */
+.hero-minimal { background: url('bg1.webp') center/cover no-repeat; height: 50vh; min-height: 350px; position: relative; display: flex; align-items: center; text-align: center; color: white; }
+.hero-overlay { background: rgba(0, 20, 40, 0.5); width: 100%; height: 100%; display: flex; align-items: center; }
+.hero-minimal h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; letter-spacing: -1px; }
+
+/* --- FLEET GRID --- */
+.fleet-section { padding: 60px 0; }
+.fleet-heading { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 40px; color: #007acc; }
+.fleet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
+.car-card-pro { background: #fff; border-radius: 15px; overflow: hidden; position: relative; border: 1px solid #edf2f7; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: 0.3s ease; display: flex; flex-direction: column; }
+.car-card-pro:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0, 122, 204, 0.12); }
+.tag { position: absolute; top: 15px; left: 15px; padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 800; color: white; z-index: 10; }
+.tag.featured { background: #007acc; }
+.tag.economy { background: #2ecc71; }
+.image-box { background: #fcfdfe; padding: 20px; height: 210px; display: flex; align-items: center; justify-content: center; }
+.car-thumb { max-width: 90%; max-height: 100%; object-fit: contain; }
+.car-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.car-title-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.car-title-row h3 { font-size: 18px; font-weight: 700; color: #1a202c; }
+.badge { background: #f1f5f9; color: #64748b; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 5px; }
+.car-specs { display: flex; gap: 15px; margin-bottom: 20px; font-size: 12px; color: #718096; }
+.pricing-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.price-item { background: #f8fafc; padding: 10px 5px; border-radius: 8px; text-align: center; border: 1px solid #f1f5f9; }
+.price-item.highlight { background: #eef9ff; border-color: #bae3ff; }
+.price-item span { display: block; font-size: 10px; text-transform: uppercase; color: #94a3b8; margin-bottom: 4px; }
+.price-item strong { font-size: 16px; color: #007acc; }
+
+/* Fleet Book Now link styled exactly like the button */
+.car-btns { display: flex; justify-content: center; margin-top: auto; }
+.btn-detail { 
+    display: block;
+    background: white; 
+    border: 1.5px solid #007acc; 
+    color: #007acc; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    text-decoration: none; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    width: 100%; 
+    text-align: center; 
+}
+.btn-detail:hover { background: #007acc; color: white; }
+
+/* --- OVERSEAS SECTION --- */
+.overseas-section { background: #ffffff; color: #333; padding: 80px 0; border-top: 1px solid #eee; }
+.overseas-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+.overseas-content h2 { font-size: 34px; font-weight: 700; margin-bottom: 10px; color: #007acc; }
+.overseas-subtitle { color: #666; margin-bottom: 40px; }
+.stepper { position: relative; padding-left: 20px; }
+.stepper::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 2px; background: #007acc; opacity: 0.2; }
+.step-item { position: relative; margin-bottom: 45px; padding-left: 30px; }
+.step-dot { position: absolute; left: -20px; top: 5px; width: 14px; height: 14px; background: #007acc; border-radius: 50%; }
+.highlight-text { color: #007acc; font-weight: 600; }
+.guide-img { width: 100%; border-radius: 10px; }
+
+/* --- FOOTER --- */
+.footer { background: #000000; color: white; padding: 60px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 50px; padding-bottom: 40px; }
+.footer-logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+.footer-logo-img { height: 50px; width: auto; object-fit: contain; }
+.footer-brand { font-size: 24px; font-weight: 800; color: #007acc; }
+.footer-brand span { color: white; }
+.footer-section-title { font-size: 14px; font-weight: 600; color: #888; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+
+.contact-link { display: block; color: white; text-decoration: none; margin-bottom: 12px; font-size: 15px; transition: 0.3s; }
+.contact-link i { color: #007acc; width: 25px; }
+.contact-link:hover { color: #007acc; }
+
+.social-links { display: flex; gap: 15px; margin-top: 25px; }
+.social-btn { width: 48px; height: 48px; border: 1px solid #444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 20px; transition: 0.3s; }
+.social-btn:hover { border-color: #007acc; color: #007acc; transform: scale(1.1); }
+
+.timing-list { list-style: none; margin: 15px 0 30px; }
+.timing-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222; font-size: 14px; }
+.closed { color: #ff7070; }
+
+/* Payment Icons Setup */
+.payment-icons-original { display: flex; gap: 15px; align-items: center; font-size: 32px; color: #ffffff; margin-top: 10px; }
+
+/* SVG styling for Tabby */
+.tabby-svg-icon {
+    height: 24px; 
+    width: 65px;
+    display: inline-block;
+    color: #ffffff; 
+}
+
+.address-text { font-size: 14px; line-height: 1.6; color: #ccc; margin-bottom: 15px; }
+.map-rectangle { width: 100%; height: 130px; border-radius: 10px; overflow: hidden; position: relative; border: 1px solid #333; }
+.map-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 122, 204, 0.4); color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; pointer-events: none; }
+
+.footer-bottom { background: #050505; text-align: center; padding: 25px 0; font-size: 12px; color: #555; border-top: 1px solid #111; }
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 991px) {
+    .overseas-grid, .footer-grid { grid-template-columns: 1fr; }
+    
+    /* Hide desktop navigation */
+    .header-nav { display: none; }
+    
+    /* Display the mobile hamburger button */
+    .hamburger { display: block; }
+
+    /* Scaled-down header proportions for balanced mobile layout */
+    .Firstcars-header {
+        height: 90px;
+    }
+    
+    .header-container {
+        padding-left: 70px; /* Leaves clear space for absolute-positioned hamburger button */
+    }
+
+    .logo-container, 
+    .header-logo {
+        height: 95px; /* Restricts the huge logo layout boxes on small containers */
+    }
+
+    /* Transform mobile button to a sleek contrast accent */
+    .call-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+        background: #f97316; /* High contrast brand accent orange color */
+        color: white;
+        box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+    }
+    
+    .call-btn:hover {
+        background: #ea580c;
+        color: white;
+    }
+    
+    /* Reposition dropdown overlay to scale well on viewport devices */
+    .call-dropdown-menu {
+        margin-top: 8px;
+        position: fixed; 
+        top: 80px;
+        right: 20px;
+        width: calc(100% - 40px); 
+        max-width: 280px;
+    }
+}
